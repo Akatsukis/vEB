@@ -26,7 +26,7 @@ RANGE  = 18    # we store 2^RANGE many elements
 
 # Your local LEDA installation. Using the std::allocator, our implementation
 # is independent of LEDA and could run alone.
-LEDAROOT = /usr/local/LEDA-4.2.1/
+LEDAROOT = LEDA-7/
 
 #  Set one of the following preprocessor definitions to select a memory manager
 # -DUSE_STD_ALLOCATOR        # std:: g++ STL allocator, single threaded
@@ -47,12 +47,14 @@ CPPFLAGS = 	-DTEST_$(STRUCT)			\
 		-DRANGE=$(RANGE)			\
 		-I$(LEDAROOT)/incl			\
 		-Wall					\
+		-Wextra					\
+		-march=native		\
 		-Wno-deprecated				\
-		-O6 -DNDEBUG -DLEDA_CHECKING_OFF	\
+		-O3 -DNDEBUG -DLEDA_CHECKING_OFF	\
 		-DUSE_LEDA_BIG_ALLOCATOR 
 
 # the required libraries from LEDA etc.
-LDFLAGS  = 	-O6 -Wl,-R$(LEDAROOT) -L$(LEDAROOT) -lL -lm 
+LDFLAGS  = 	-O3 -Wl,-R$(LEDAROOT) -L$(LEDAROOT) -lleda -lX11 -lXft
 
 GCC = g++
 

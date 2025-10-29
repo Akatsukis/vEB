@@ -52,7 +52,8 @@ struct default_allocator
 
 #ifdef USE_LEDA_ALLOCATOR
 #define LEDA_USE_MEMORY_STD
-#include <LEDA/allocator.h>
+#include <LEDA/system/allocator.h>
+#include <LEDA/system/memory_manager.h>
 #if __LEDA__ >= 440
 #define default_allocator leda::leda_allocator
 #else
@@ -62,7 +63,8 @@ struct default_allocator
 
 #ifdef USE_LEDA_BIG_ALLOCATOR
 #define LEDA_USE_MEMORY_STD
-#include <LEDA/allocator.h>
+#include <LEDA/system/allocator.h>
+#include <LEDA/system/memory_manager.h>
 
 // leda allocator that manages also objects of size up to 1024 bytes
 #if __LEDA__ >= 440
@@ -74,7 +76,7 @@ extern memory_manager memory_mgr;
 // Hack: definition of variable in header, trust its included only once 
 // in the application here. Will be fixed later to seperate C file.
 #if __LEDA__ >= 440
-leda::memory_manager memory_mgr( 1024);
+leda::memory_manager memory_mgr(1024, "leda");
 #else
 memory_manager memory_mgr( 1024);
 #endif

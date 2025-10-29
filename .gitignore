@@ -1,0 +1,47 @@
+# Executables with no extension
+*
+!*.*
+!*/
+!Makefile
+build/
+LEDA-7/
+
+# Output/debug files
+.vscode/
+*.bak
+*.tsv
+*.py
+perf*
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app

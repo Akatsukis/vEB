@@ -24,7 +24,7 @@
 #ifdef GCC3
 #include <ext/hash_map>
 #else
-#include <hash_map>
+#include <unordered_map>
 #endif
 
 #include "allocator.h"
@@ -39,7 +39,7 @@ class STree_orig {
 #ifdef GCC3
     typedef __gnu_cxx::hash_map < int, STree_orig *> hash_table_type;
 #else
-    typedef std::hash_map < int, STree_orig *> hash_table_type;
+    typedef std::unordered_map < int, STree_orig *> hash_table_type;
 #endif	
     hash_table_type * bot;
 

@@ -23,8 +23,8 @@
 #include <set>
 #include <queue>
 #include "STree_orig.h" // Attn: order dependent, has to come before LEDA!!
-#include <LEDA/_sortseq.h> 
-#include <LEDA/impl/ab_tree.h>
+#include <LEDA/core/sortseq.h> 
+#include <LEDA/core/impl/ab_tree.h>
 #include <map>
 
 #include "Dlist.h"
@@ -45,7 +45,7 @@
 #endif
 
 
-namespace fake_leda {
+namespace leda {
     GenPtr nullGenPtr(0);
 }
 
@@ -61,20 +61,20 @@ inline unsigned my_rand(void) {
 }
 
 typedef std::map<int,int> stl_map;
-typedef _sortseq<int,int,ab_tree> leda_ab_tree_;
+typedef leda::sortseq<int,int,leda::ab_tree> leda_ab_tree_;
 
 #define DECLARE_DICT \
         LVL1Tree test; \
 	std::map<int,int> paar; \
-	leda_sortseq<int,int> l_sortseq; \
+	leda::sortseq<int,int> l_sortseq; \
 	STree_orig<> orig_stree(0); \
-	leda_ab_tree_ l_dict;
+	leda::ab_tree l_dict;
 
 // 	leda_stree l_stree(32);
 
 class FTL { 
-    typedef leda_sortseq<int,int>::item sortseq_item_t;
-    typedef leda_ab_tree_::item         dict_item_t;
+    typedef leda::sortseq<int,int>::item sortseq_item_t;
+    typedef leda::ab_tree::item         dict_item_t;
 ///	typedef fake_leda::eb_tree leda_stree;
   
 public:
@@ -242,7 +242,7 @@ void FTL::locTest(unsigned int elements,unsigned int iter, unsigned int shift){
 
     // locate results
     Dnode*                 map32_item;    
-    map<int,int>::iterator mapIter;
+    std::map<int,int>::iterator mapIter;
     sortseq_item_t         leda_sortseq_item;
     dict_item_t            leda_dict_item;
     int tmp = 0;
