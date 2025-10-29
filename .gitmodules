@@ -1,0 +1,3 @@
+[submodule "LEDA-7"]
+	path = LEDA-7
+	url = https://github.com/snaeher/LEDA-7.git
